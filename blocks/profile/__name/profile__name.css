@@ -1,5 +1,5 @@
 .profile__name {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
@@ -11,7 +11,7 @@
     margin: 0 0 16px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 920px) {
     .profile__name {
         font-size: 35px;
     }
@@ -21,7 +21,6 @@
     .profile__name {
         font-size: 27px;
         line-height: 33px;
-        text-align: center;
         margin: 26px 0 14px 28px;
     }
 }

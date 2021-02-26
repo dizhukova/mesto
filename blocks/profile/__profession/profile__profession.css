@@ -1,5 +1,5 @@
 .profile__profession {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -11,7 +11,7 @@
     margin: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
     .profile__profession {
         font-size: 14px;
         line-height: 17px;

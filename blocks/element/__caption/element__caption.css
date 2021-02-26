@@ -1,5 +1,5 @@
 .element__caption {
-    outline: 1px red solid;
+    /* outline: 1px red solid; */
     display: flex;
     align-items: baseline;
     justify-content: space-between;

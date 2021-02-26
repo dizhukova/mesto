@@ -1,5 +1,5 @@
 .profile__name-box {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     display: flex;
     align-items: baseline;
 }
