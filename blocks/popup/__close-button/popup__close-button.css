@@ -25,8 +25,8 @@
   
 @media screen and (max-width: 576px) {
     .popup__close-button {
-        top: -40px;
-        width: 26px;
+        width: 26px; /* в макете указано, что кнопка должна быть 26х26, не могу найти ошибку */
         height: 26px;
+        top: -40px;
     }
 }

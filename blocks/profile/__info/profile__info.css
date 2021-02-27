@@ -7,14 +7,15 @@
     max-width: 336px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .profile__info {
         margin-left: 15px;
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 600px) {
     .profile__info {
+        max-width: 282px;
         margin-left: 0;
         align-items: center;
     }

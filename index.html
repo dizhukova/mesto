@@ -18,55 +18,55 @@
                     <div class="profile__info">
                         <div class="profile__name-box">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button" type="button" aria-label="Edit"></button>
+                            <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
                         </div>
                         <p class="profile__profession">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button" type="button" aria-label="Add"></button>
+                <button class="profile__add-button" type="button" aria-label="Добавить"></button>
             </section>
             <section class="photos">
                 <ul class="elements">
                     <li class="element">
                         <img class="element__image" src="./images/roland-yeghiazaryan-EJnL2XT4lPM-unsplash.jpg" alt="Армения">
                         <div class="element__caption">
-                            <h2 class="element__name">Озеро Севан</h2> <!--хотела сделать блок с картинкой через figure, но не могу понять, как тогда быть с кнопкой. и картинка вываливается -->
-                            <button class="element__like-button" type="button" aria-label="Like"></button> 
+                            <h2 class="element__name">Озеро Севан</h2>
+                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/iman-gozal-5iQWgow3_S0-unsplash.jpg" alt="Грузия">
                         <div class="element__caption">
                             <h2 class="element__name">Казбеги</h2>
-                            <button class="element__like-button" type="button" aria-label="Like"></button> 
+                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/kirill-pershin-TKubReByX5Q-unsplash.jpg" alt="Домбай">
                         <div class="element__caption">
                             <h2 class="element__name">Домбай</h2>
-                            <button class="element__like-button" type="button" aria-label="Like"></button> 
+                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/giuseppe-mondi-OIbcmFyMDbo-unsplash.jpg" alt="Каппадокия">
                         <div class="element__caption">
                             <h2 class="element__name">Каппадокия</h2>
-                            <button class="element__like-button" type="button" aria-label="Like"></button> 
+                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/khamkeo-vilaysing-rBRZLPVLQg0-unsplash.jpg" alt="Исландия">
                         <div class="element__caption">
                             <h2 class="element__name">Гюдльфосс</h2>
-                            <button class="element__like-button" type="button" aria-label="Like"></button> 
+                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__image" src="./images/morgan-thompson-I7q8s0KNhn0-unsplash.jpg" alt="Швейцария">
                         <div class="element__caption">
                             <h2 class="element__name">Церматт</h2>
-                            <button class="element__like-button" type="button" aria-label="Like"></button> 
+                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
                         </div>
                     </li>
                 </ul>
@@ -79,11 +79,11 @@
     <div class="popup">
         <div class="popup__container">
             <h3 class="popup__title">Редактировать профиль</h3>
-            <button class="popup__close-button" type="button"></button>
-            <form class="popup__form" name="EditProfile" novalidate>
-                <input class="popup__form-input" type="text" id="profile__name" name="name" placeholder="Имя" required>
-                <input class="popup__form-input" type="text" id="profile__profession" name="profession" placeholder="Вид деятельности" required>
-                <button class="popup__save-button" type="submit" aria-label="Save">Сохранить</button>
+            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+            <form class="popup__form" name="EditProfile">
+                <input class="popup__form-input popup__form-input_type_name" type="text" id="profile__name" name="name" placeholder="Имя" required>
+                <input class="popup__form-input popup__form-input_type_profession" type="text" id="profile__profession" name="profession" placeholder="Вид деятельности" required>
+                <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
             </form> 
         </div>
     </div>

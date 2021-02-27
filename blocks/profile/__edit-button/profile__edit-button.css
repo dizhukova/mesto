@@ -8,15 +8,15 @@
     background-color: #000;
     border: 1px solid #fff;
     outline: none;
-    cursor: pointer;
+    transition: ease-in 1s;
 }
 
 .profile__edit-button:hover {
-    transition: ease-in 1s;
+    cursor: pointer;
     opacity: .6;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 920px) {
     .profile__edit-button {
         width: 18px;
         height: 18px;

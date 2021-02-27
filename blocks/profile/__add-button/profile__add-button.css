@@ -11,21 +11,19 @@
 
 .profile__add-button:hover {
   cursor: pointer;
-  transition: ease-in 1s;
   opacity: .6;
+  transition: ease-in 1s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
   .profile__add-button {
-    width: 110px;
-    height: 50px;
     margin-left: 10px;
+    margin: 36px 0 0;
   }
 }
   
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 600px) {
   .profile__add-button {
     width: 282px;
-    margin: 36px 0 0;
   }
 }

@@ -7,8 +7,9 @@
     /* outline: 1px solid red; */
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 920px) {
     .profile {
+        max-width: 282px;
         flex-direction: column;
     }
 }

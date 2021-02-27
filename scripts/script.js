@@ -3,9 +3,9 @@ let closeEditForm = document.querySelector('.popup__close-button');
 let popup = document.querySelector('.popup');
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
-let form = document.querySelector('form[name="EditProfile"]');
-let editName = document.querySelector('input[name="name"]');
-let editProfession = document.querySelector('input[name="profession"]');
+let form = document.querySelector('.popup__form');
+let editName = document.querySelector('.popup__form-input_type_name');
+let editProfession = document.querySelector('.popup__form-input_type_profession');
 
 function openPopup() {
     popup.classList.add('popup_opened');
@@ -17,7 +17,7 @@ function closePopup() {
     popup.classList.remove('popup_opened');
 }
 
-function formSubmitHandler(evt) {
+function handleProfileSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = editName.value;
     profileProfession.textContent = editProfession.value;
@@ -26,4 +26,4 @@ function formSubmitHandler(evt) {
 
 openEditForm.addEventListener('click', openPopup);
 closeEditForm.addEventListener('click', closePopup);
-form.addEventListener('submit', formSubmitHandler);
+form.addEventListener('submit', handleProfileSubmit);
