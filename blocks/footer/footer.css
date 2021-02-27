@@ -11,3 +11,9 @@
         margin-bottom: 36px;
     }
 }
+
+@media screen and (max-width: 320px) {
+    .footer {
+        width: calc(100% - 38px);
+    }
+}
