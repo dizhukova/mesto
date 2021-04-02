@@ -1,52 +1,3 @@
-const initialCards = [
-    {
-      name: 'Италия',
-      link: 'https://images.unsplash.com/photo-1536323760109-ca8c07450053?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2602&q=80'
-    },
-    {
-      name: 'Франция',
-      link: 'https://images.unsplash.com/photo-1587889834738-eb80f47da2e3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=882&q=80'
-    },
-    {
-      name: 'Грузия',
-      link: 'https://images.unsplash.com/photo-1568558715456-0983a3b5cca9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=975&q=80'
-    },
-    {
-      name: 'Турция',
-      link: 'https://images.unsplash.com/photo-1526048598645-62b31f82b8f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80'
-    },
-    {
-      name: 'Куба',
-      link: 'https://images.unsplash.com/photo-1570299437522-f66ff98d52e7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
-    },
-    {
-      name: 'Шри-Ланка',
-      link: 'https://images.unsplash.com/photo-1571406761758-9a3eed5338ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80'
-    }
-];
-
-const elements = document.querySelector('.elements')
-
-function createPhotoCard(element) {
-    return `
-        <li class="element">
-            <img class="element__image" src="${element.link}" alt="${element.name}">
-            <button class="element__delete-button" type="button" aria-label="Удалить"></button>
-            <div class="element__caption">
-                    <h2 class="element__name">${element.name}</h2>
-                    <button class="element__like-button" type="button" aria-label="Нравится"></button>
-            </div>
-        </li>
-    `;
-};
-
-function renderCards() {
-    const card = initialCards.map(createPhotoCard).join('');
-    elements.insertAdjacentHTML('afterbegin', card);
-}
-
-renderCards();
-
 // форма редактирования профиля
 let openEditForm = document.querySelector('.profile__edit-button');
 let closeEditForm = document.querySelector('#edit_close-button');
@@ -77,6 +28,58 @@ form.addEventListener('submit', function handleProfileSubmit(evt) {
 });
 
 
+//загрузка карточек на страницу
+const initialCards = [
+    {
+      name: 'Италия',
+      link: 'https://images.unsplash.com/photo-1536323760109-ca8c07450053?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2602&q=80'
+    },
+    {
+      name: 'Франция',
+      link: 'https://images.unsplash.com/photo-1587889834738-eb80f47da2e3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=882&q=80'
+    },
+    {
+      name: 'Грузия',
+      link: 'https://images.unsplash.com/photo-1568558715456-0983a3b5cca9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=975&q=80'
+    },
+    {
+      name: 'Турция',
+      link: 'https://images.unsplash.com/photo-1526048598645-62b31f82b8f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80'
+    },
+    {
+      name: 'Куба',
+      link: 'https://images.unsplash.com/photo-1570299437522-f66ff98d52e7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
+    },
+    {
+      name: 'Шри-Ланка',
+      link: 'https://images.unsplash.com/photo-1571406761758-9a3eed5338ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80'
+    }
+];
+
+const elements = document.querySelector('.elements')
+const CardTemplate = document.querySelector('.template');
+
+function createCard(element) {
+    const card = CardTemplate.content.cloneNode(true);
+    const cardTitle = card.querySelector('.element__name');
+    const cardImage = card.querySelector('.element__image');
+    const cardDeleteButton = card.querySelector('.element__delete-button');
+    const cardLikeButton = card.querySelector('.element__like-button');
+
+    cardTitle.textContent = element.name;
+    cardImage.alt = element.name;
+    cardImage.src = element.link;
+
+    return card;
+};
+
+function renderCards() {
+    const photoCard = initialCards.map(createCard);
+    elements.append(...photoCard);
+}
+
+renderCards();
+
 // форма добавления новой карточки
 const openAddForm = document.querySelector('.profile__add-button');
 const closeAddForm = document.querySelector('#add_close-button');
@@ -100,8 +103,8 @@ function addNewCard(evt) {
     const inputCardName = inputName.value;
     const inputCardLink = inputLink.value;
 
-    const newCard = createPhotoCard({ name: inputCardName , link: inputCardLink});
-    elements.insertAdjacentHTML('afterbegin', newCard);
+    const newCard = createCard({ name: inputCardName , link: inputCardLink});
+    elements.prepend(newCard);
 
     inputName.value = '';
     inputLink.value = '';
