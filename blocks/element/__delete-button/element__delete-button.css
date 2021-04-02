@@ -7,6 +7,7 @@
     background-image: url(../../../images/Trash.svg);
     background-color: transparent;
     border: none;
+    outline: none;
     transition: linear .2s;
 }
 

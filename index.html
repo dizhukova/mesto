@@ -27,48 +27,7 @@
             </section>
             <section class="photos">
                 <template class="elements">
-                    <!-- <li class="element">
-                        <img class="element__image" src="./images/roland-yeghiazaryan-EJnL2XT4lPM-unsplash.jpg" alt="Армения">
-                        <div class="element__caption">
-                            <h2 class="element__name">Озеро Севан</h2>
-                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/iman-gozal-5iQWgow3_S0-unsplash.jpg" alt="Грузия">
-                        <div class="element__caption">
-                            <h2 class="element__name">Казбеги</h2>
-                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/kirill-pershin-TKubReByX5Q-unsplash.jpg" alt="Домбай">
-                        <div class="element__caption">
-                            <h2 class="element__name">Домбай</h2>
-                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/giuseppe-mondi-OIbcmFyMDbo-unsplash.jpg" alt="Каппадокия">
-                        <div class="element__caption">
-                            <h2 class="element__name">Каппадокия</h2>
-                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/khamkeo-vilaysing-rBRZLPVLQg0-unsplash.jpg" alt="Исландия">
-                        <div class="element__caption">
-                            <h2 class="element__name">Гюдльфосс</h2>
-                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img class="element__image" src="./images/morgan-thompson-I7q8s0KNhn0-unsplash.jpg" alt="Швейцария">
-                        <div class="element__caption">
-                            <h2 class="element__name">Церматт</h2>
-                            <button class="element__like-button" type="button" aria-label="Нравится"></button> 
-                        </div>
-                    </li> -->
+                   
                 </template>
             </section>
         </main>
@@ -79,8 +38,8 @@
     <div class="popup popup_edit_profile">
         <div class="popup__container">
             <h3 class="popup__title">Редактировать профиль</h3>
-            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
-            <form class="popup__form" name="EditProfile">
+            <button class="popup__close-button" type="button" aria-label="Закрыть" id="edit_close-button"></button>
+            <form class="popup__form" name="EditProfile" id="form_edit-profile">
                 <input class="popup__form-input popup__form-input_type_name" minlength="2" maxlength="40" type="text" id="profile__name" name="name" placeholder="Имя" required>
                 <input class="popup__form-input popup__form-input_type_profession" minlength="2" maxlength="200" type="text" id="profile__profession" name="profession" placeholder="Вид деятельности" required>
                 <button class="popup__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
@@ -90,8 +49,8 @@
     <div class="popup popup_add_card">
         <div class="popup__container">
             <h3 class="popup__title">Новое место</h3>
-            <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
-            <form class="popup__form" name="AddCard">
+            <button class="popup__close-button" type="button" aria-label="Закрыть" id="add_close-button"></button>
+            <form class="popup__form" name="AddCard" id="form_add-card">
                 <input class="popup__form-input popup__form-input_card_name" minlength="2" maxlength="30" type="text" id="card-name" name="card-name" placeholder="Название" required>
                 <input class="popup__form-input popup__form-input_card_link" type="url" id="card-link" name="card-link" placeholder="Ссылка на картинку" required>
                 <button class="popup__save-button" type="submit" aria-label="Создать">Создать</button>

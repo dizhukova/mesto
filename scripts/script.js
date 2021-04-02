@@ -27,54 +27,91 @@ const initialCards = [
 
 const elements = document.querySelector('.elements')
 
+function createPhotoCard(element) {
+    return `
+        <li class="element">
+            <img class="element__image" src="${element.link}" alt="${element.name}">
+            <button class="element__delete-button" type="button" aria-label="Удалить"></button>
+            <div class="element__caption">
+                    <h2 class="element__name">${element.name}</h2>
+                    <button class="element__like-button" type="button" aria-label="Нравится"></button>
+            </div>
+        </li>
+    `;
+};
+
 function renderCards() {
-    const card = initialCards.map(function(element) {
-        return `
-            <li class="element">
-                <img class="element__image" src="${element.link}" alt="${element.name}">
-                <button class="element__delete-button" type="button" aria-label="Удалить"></button>
-                <div class="element__caption">
-                        <h2 class="element__name">${element.name}</h2>
-                        <button class="element__like-button" type="button" aria-label="Нравится"></button>
-                </div>
-            </li>
-        `;
-
-    }).join('');
-
+    const card = initialCards.map(createPhotoCard).join('');
     elements.insertAdjacentHTML('afterbegin', card);
 }
 
 renderCards();
 
-
-
+// форма редактирования профиля
 let openEditForm = document.querySelector('.profile__edit-button');
-let closeEditForm = document.querySelector('.popup__close-button');
-let popup = document.querySelector('.popup');
+let closeEditForm = document.querySelector('#edit_close-button');
+let popupEditForm = document.querySelector('.popup_edit_profile');
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
-let form = document.querySelector('.popup__form');
+let form = document.querySelector('#form_edit-profile');
 let editName = document.querySelector('.popup__form-input_type_name');
 let editProfession = document.querySelector('.popup__form-input_type_profession');
 
-function openPopup() {
-    popup.classList.add('popup_opened');
+openEditForm.addEventListener('click', function openEditPopup() {
+    popupEditForm.classList.add('popup_opened');
     editName.value = profileName.textContent;
     editProfession.value = profileProfession.textContent;
+});
+
+function closeEditPopup() {
+    popupEditForm.classList.remove('popup_opened');
 }
 
-function closePopup() {
-    popup.classList.remove('popup_opened');
-}
+closeEditForm.addEventListener('click', closeEditPopup);
 
-function handleProfileSubmit(evt) {
+form.addEventListener('submit', function handleProfileSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = editName.value;
     profileProfession.textContent = editProfession.value;
-    closePopup();
+    closeEditPopup();
+});
+
+
+// форма добавления новой карточки
+const openAddForm = document.querySelector('.profile__add-button');
+const closeAddForm = document.querySelector('#add_close-button');
+const popupAddForm = document.querySelector('.popup_add_card');
+const addForm = document.querySelector('#form_add-card');
+
+openAddForm.addEventListener('click', function openAddPopup() {
+    popupAddForm.classList.add('popup_opened');
+});
+
+function closeAddPopup() {
+    popupAddForm.classList.remove('popup_opened');
 }
 
-openEditForm.addEventListener('click', openPopup);
-closeEditForm.addEventListener('click', closePopup);
-form.addEventListener('submit', handleProfileSubmit);
+closeAddForm.addEventListener('click', closeAddPopup);
+
+function addNewCard(evt) {
+    evt.preventDefault();
+    const inputName = addForm.querySelector('.popup__form-input_card_name');
+    const inputLink = addForm.querySelector('.popup__form-input_card_link');
+    const inputCardName = inputName.value;
+    const inputCardLink = inputLink.value;
+
+    const newCard = createPhotoCard({ name: inputCardName , link: inputCardLink});
+    elements.insertAdjacentHTML('afterbegin', newCard);
+
+    inputName.value = '';
+    inputLink.value = '';
+
+    closeAddPopup();
+};
+
+addForm.addEventListener('submit', addNewCard);
+
+
+
+
+
