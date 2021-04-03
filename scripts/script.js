@@ -1,7 +1,7 @@
 // форма редактирования профиля
+let popupEditForm = document.querySelector('.popup_edit_profile');
 let openEditForm = document.querySelector('.profile__edit-button');
 let closeEditForm = document.querySelector('#edit_close-button');
-let popupEditForm = document.querySelector('.popup_edit_profile');
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
 let form = document.querySelector('#form_edit-profile');
@@ -28,7 +28,7 @@ form.addEventListener('submit', function handleProfileSubmit(evt) {
 });
 
 
-//загрузка карточек на страницу
+// загрузка карточек на страницу
 const initialCards = [
     {
       name: 'Италия',
@@ -59,6 +59,11 @@ const initialCards = [
 const elements = document.querySelector('.elements')
 const CardTemplate = document.querySelector('.template');
 
+const ImagePopup = document.querySelector('.popup_open_image');
+const closeImagePopup = document.querySelector('#image_close-button');
+const pictureImagePopup = document.querySelector('.popup__image');
+const captionImagePopup = document.querySelector('.popup__caption');
+
 function createCard(element) {
     const card = CardTemplate.content.cloneNode(true);
     const cardTitle = card.querySelector('.element__name');
@@ -80,6 +85,14 @@ function createCard(element) {
         cardLikeButton.classList.toggle('element__like-button_active');
     });
 
+    // открытие карточки
+    cardImage.addEventListener('click', function openImagePopup() {
+        ImagePopup.classList.add('popup_opened');
+        pictureImagePopup.src = element.link;
+        pictureImagePopup.alt = element.name;
+        captionImagePopup.textContent = element.name;
+    });
+
     return card;
 };
 
@@ -90,10 +103,15 @@ function renderCards() {
 
 renderCards();
 
+// закрытие карточки
+closeImagePopup.addEventListener('click', function() {
+    ImagePopup.classList.remove('popup_opened');
+});
+
 // форма добавления новой карточки
+const popupAddForm = document.querySelector('.popup_add_card');
 const openAddForm = document.querySelector('.profile__add-button');
 const closeAddForm = document.querySelector('#add_close-button');
-const popupAddForm = document.querySelector('.popup_add_card');
 const addForm = document.querySelector('#form_add-card');
 
 openAddForm.addEventListener('click', function openAddPopup() {
@@ -116,8 +134,6 @@ addForm.addEventListener('submit', function addNewCard(evt) {
     const newCard = createCard({ name: inputCardName , link: inputCardLink});
     elements.prepend(newCard);
 
-    inputName.value = '';
-    inputLink.value = '';
-
+    addForm.reset();
     closeAddPopup();
 });
