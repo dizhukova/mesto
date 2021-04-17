@@ -1,12 +1,12 @@
 // форма редактирования профиля
-const popupEditForm = document.querySelector('.popup_edit_profile');
+const popupEditProfile = document.querySelector('.popup_edit_profile');
 const openEditPopupBtn = document.querySelector('.profile__edit-button');
-const closeEditPopupBtn = document.querySelector('#edit_close-button');
+const closeEditPopupBtn = popupEditProfile.querySelector('#edit_close-button');
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
-const editForm = document.querySelector('#form_edit-profile');
-const editName = document.querySelector('.popup__form-input_type_name');
-const editProfession = document.querySelector('.popup__form-input_type_profession');
+const editForm = document.forms.EditProfile;
+const editName = editForm.querySelector('.popup__input_type_name');
+const editProfession = editForm.querySelector('.popup__input_type_profession');
 
 // открытие попапа
 function openPopup(popup) {
@@ -19,20 +19,20 @@ function closePopup(popup) {
 }
 
 openEditPopupBtn.addEventListener('click', function openEditPopup() {
-    openPopup(popupEditForm);
+    openPopup(popupEditProfile);
     editName.value = profileName.textContent;
     editProfession.value = profileProfession.textContent;
 });
 
 closeEditPopupBtn.addEventListener('click', function closeEditPopup(){
-    closePopup(popupEditForm);
+    closePopup(popupEditProfile);
 });
 
 function handleProfileSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = editName.value;
     profileProfession.textContent = editProfession.value;
-    closePopup(popupEditForm);
+    closePopup(popupEditProfile);
 }
 
 editForm.addEventListener('submit', handleProfileSubmit);
@@ -43,9 +43,9 @@ const elements = document.querySelector('.elements')
 const cardTemplate = document.querySelector('.template');
 
 const imagePopup = document.querySelector('.popup_open_image');
-const closeImagePopupBtn = document.querySelector('#image_close-button');
-const pictureImagePopup = document.querySelector('.popup__image');
-const captionImagePopup = document.querySelector('.popup__caption');
+const closeImagePopupBtn = imagePopup.querySelector('#image_close-button');
+const pictureImagePopup = imagePopup.querySelector('.popup__image');
+const captionImagePopup = imagePopup.querySelector('.popup__caption');
 
 function createCard(element) {
     const card = cardTemplate.content.cloneNode(true);
@@ -92,33 +92,34 @@ closeImagePopupBtn.addEventListener('click', function() {
 });
 
 // форма добавления новой карточки
-const popupAddForm = document.querySelector('.popup_add_card');
+const popupAddCard = document.querySelector('.popup_add_card');
 const openAddFormBtn = document.querySelector('.profile__add-button');
-const closeAddFormBtn = document.querySelector('#add_close-button');
-const addForm = document.querySelector('#form_add-card');
+const closeAddFormBtn = popupAddCard.querySelector('#add_close-button');
+const addForm = document.forms.AddCard;
+const inputName = addForm.querySelector('.popup__input_card_name');
+const inputLink = addForm.querySelector('.popup__input_card_link');
 
 openAddFormBtn.addEventListener('click', function openAddPopup() {
-    openPopup(popupAddForm);
+    openPopup(popupAddCard);
 });
 
 function closeAddPopup() {
-    closePopup(popupAddForm);
+    closePopup(popupAddCard);
 }
 
 closeAddFormBtn.addEventListener('click', closeAddPopup);
 
 function addNewCard(evt) {
     evt.preventDefault();
-    const inputName = addForm.querySelector('.popup__form-input_card_name');
-    const inputLink = addForm.querySelector('.popup__form-input_card_link');
+
     const inputCardName = inputName.value;
     const inputCardLink = inputLink.value;
-
+    
     const newCard = createCard({ name: inputCardName , link: inputCardLink});
     elements.prepend(newCard);
 
     addForm.reset();
-    closePopup(popupAddForm);
+    closePopup(popupAddCard);
 }
 
 addForm.addEventListener('submit',addNewCard);
