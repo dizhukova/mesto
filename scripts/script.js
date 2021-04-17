@@ -8,15 +8,36 @@ const editForm = document.forms.EditProfile;
 const editName = editForm.querySelector('.popup__input_type_name');
 const editProfession = editForm.querySelector('.popup__input_type_profession');
 
+// Закрытие попапа кликом на оверлей
+function closePopupByOverlay(evt) {
+    if (evt.target.classList.contains('popup')) {
+      const popup = document.querySelector('.popup_opened');
+      closePopup(popup);
+    }
+}
+
+// Закрытие попапа нажатием на Esc
+function closePopupByEscape(evt) {
+    if (evt.key === 'Escape') {
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
+    }
+}
+
 // открытие попапа
 function openPopup(popup) {
-    popup.classList.add('popup_opened'); 
+    popup.classList.add('popup_opened');
+    document.addEventListener('click', closePopupByOverlay);
+    document.addEventListener('keydown', closePopupByEscape); 
 }
 
 // закрытие попапа
 function closePopup(popup) {
-    popup.classList.remove('popup_opened'); 
+    popup.classList.remove('popup_opened');
+    document.removeEventListener('click', closePopupByOverlay);
+    document.removeEventListener('keydown', closePopupByEscape);  
 }
+
 
 openEditPopupBtn.addEventListener('click', function openEditPopup() {
     openPopup(popupEditProfile);
@@ -68,7 +89,7 @@ function createCard(element) {
         cardLikeButton.classList.toggle('element__like-button_active');
     });
 
-    // открытие карточки
+    // открытие карточки с фото
     cardImage.addEventListener('click', function openImagePopup() {
         openPopup(imagePopup);
         pictureImagePopup.src = element.link;
@@ -86,10 +107,11 @@ function renderCards() {
 
 renderCards();
 
-// закрытие карточки
+// закрытие карточки с фото
 closeImagePopupBtn.addEventListener('click', function() {
     closePopup(imagePopup);
 });
+
 
 // форма добавления новой карточки
 const popupAddCard = document.querySelector('.popup_add_card');
