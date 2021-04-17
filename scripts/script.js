@@ -118,7 +118,7 @@ const popupAddCard = document.querySelector('.popup_add_card');
 const openAddFormBtn = document.querySelector('.profile__add-button');
 const closeAddFormBtn = popupAddCard.querySelector('#add_close-button');
 const addForm = document.forms.AddCard;
-const inputName = addForm.querySelector('.popup__input_card_name');
+const inputName = addForm.querySelector('.popup__input_card_title');
 const inputLink = addForm.querySelector('.popup__input_card_link');
 
 openAddFormBtn.addEventListener('click', function openAddPopup() {
