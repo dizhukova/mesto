@@ -61,16 +61,16 @@ const hasInvalidInput = (inputList) => {
 // блокируем кнопку сабмита при наличии хотя бы одного невалидного поля
 const toggleButtonState = (inputList, buttonElement) => {
     if (hasInvalidInput(inputList)) {
-        buttonElement.setAttribute('disabled', true);
+        buttonElement.disabled = true;;
         buttonElement.classList.add(validationConfig.inactiveButtonClass);
     } else {
-        buttonElement.removeAttribute('disabled');
+        buttonElement.disabled = false;;
         buttonElement.classList.remove(validationConfig.inactiveButtonClass);
     }
 };
 
 // добавляем обработчики всем формам
-const enableValidation = () => {
+const enableValidation = (validationConfig) => {
     const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
     formList.forEach((formElement) => {
         formElement.addEventListener('submit', function (evt) {
