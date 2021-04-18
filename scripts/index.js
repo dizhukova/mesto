@@ -1,5 +1,5 @@
 // форма редактирования профиля
-const popupEditProfile = document.querySelector('.popup_type_edit_profile');
+const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const openEditPopupBtn = document.querySelector('.profile__edit-button');
 const closeEditPopupBtn = popupEditProfile.querySelector('#edit_close-button');
 const profileName = document.querySelector('.profile__name');
@@ -64,7 +64,7 @@ editForm.addEventListener('submit', handleProfileSubmit);
 const elements = document.querySelector('.elements')
 const cardTemplate = document.querySelector('.template');
 
-const imagePopup = document.querySelector('.popup_type_open_image');
+const imagePopup = document.querySelector('.popup_type_open-image');
 const closeImagePopupBtn = imagePopup.querySelector('#image_close-button');
 const pictureImagePopup = imagePopup.querySelector('.popup__image');
 const captionImagePopup = imagePopup.querySelector('.popup__caption');
