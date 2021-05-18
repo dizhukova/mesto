@@ -1,4 +1,4 @@
-.elements {
+.cards{
     /* outline: 1px red solid; */
     max-width: 880px;
     margin: 51px auto 0;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 576px) {
-    .elements {
+    .cards {
         width: calc(100% - 38px);
         margin-top: 36px;
     }
