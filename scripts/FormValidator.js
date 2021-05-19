@@ -1,5 +1,5 @@
 // настройки валидации 
-const validationConfig = {
+export const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save-button',
@@ -8,9 +8,7 @@ const validationConfig = {
     errorClass: 'popup__input-error_active'
 }
 
-export { validationConfig };
-
-export default class FormValidator {
+export class FormValidator {
     constructor(validationConfig, formElement) {
         this._validationConfig = validationConfig;
         this._formElement = formElement;
@@ -39,9 +37,9 @@ export default class FormValidator {
     // проверяем валидность поля
     _checkInputValidity(inputElement) {
         if (!inputElement.validity.valid) {
-            showInputError(inputElement, inputElement.validationMessage);
+            this._showInputError(inputElement, inputElement.validationMessage);
         } else {
-            hideInputError(inputElement);
+            this._hideInputError(inputElement);
         }
     }
 
@@ -67,7 +65,7 @@ export default class FormValidator {
 
     // блокируем кнопку сабмита при наличии хотя бы одного невалидного поля
     toggleButtonState() {
-        if (hasInvalidInput()) {
+        if (this._hasInvalidInput()) {
             this._buttonElement.disabled = true;;
             this._buttonElement.classList.add(this._validationConfig.inactiveButtonClass);
         } else {
@@ -78,7 +76,7 @@ export default class FormValidator {
 
     // добавляем обработчики всем формам
     enableValidation() {
-        this.setEventListeners()
+        this._setEventListeners();
     }
 
     // удаление сообщений об ошибках
