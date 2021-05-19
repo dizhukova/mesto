@@ -1,5 +1,7 @@
 import { initialCards } from './initial-сards.js';
 import Card from './Card.js';
+import { validationConfig } from './FormValidator.js';
+import FormValidator from './FormValidator.js';
 
 // форма редактирования профиля
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
