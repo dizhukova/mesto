@@ -1,29 +1,30 @@
-import { Card } from '../scripts/components/Card.js';
-import { initialCards } from '../scripts/utils/initial-сards.js';
-import { FormValidator } from '../scripts/components/FormValidator.js';
-import { validationConfig } from '../scripts/components/FormValidator.js';
+import Section from '../scripts/components/Section.js';
+import Card from '../scripts/components/Card.js';
+import {  initialCards, templateConfig, validationConfig, elidProfileConfig, addCardConfig, imagePopupConfig } from '../scripts/utils/constants.js';
+import FormValidator from '../scripts/components/FormValidator.js';
+import Section from '../scripts/components/Section.js';
 
 
-// данные формы редактирования профиля
-const popupEditProfile = document.querySelector('.popup_type_edit-profile');
-const openEditPopupBtn = document.querySelector('.profile__edit-button');
-const closeEditPopupBtn = popupEditProfile.querySelector('#edit_close-button');
-const profileName = document.querySelector('.profile__name');
-const profileProfession = document.querySelector('.profile__profession');
-const editForm = document.forms.EditProfile;
-const editName = editForm.querySelector('.popup__input_type_name');
-const editProfession = editForm.querySelector('.popup__input_type_profession');
+// // данные формы редактирования профиля
+// const popupEditProfile = document.querySelector('.popup_type_edit-profile');
+// const openEditPopupBtn = document.querySelector('.profile__edit-button');
+// const closeEditPopupBtn = popupEditProfile.querySelector('#edit_close-button');
+// const profileName = document.querySelector('.profile__name');
+// const profileProfession = document.querySelector('.profile__profession');
+// const editForm = document.forms.EditProfile;
+// const editName = editForm.querySelector('.popup__input_type_name');
+// const editProfession = editForm.querySelector('.popup__input_type_profession');
 
 // данные формы добавления новой карточки
-const popupAddCard = document.querySelector('.popup_type_add-card');
-const openAddFormBtn = document.querySelector('.profile__add-button');
-const closeAddFormBtn = popupAddCard.querySelector('#add_close-button');
-const addForm = document.forms.AddCard;
+// const popupAddCard = document.querySelector('.popup_type_add-card');
+// const openAddFormBtn = document.querySelector('.profile__add-button');
+// const closeAddFormBtn = popupAddCard.querySelector('#add_close-button');
+// const addForm = document.forms.AddCard;
 const inputName = addForm.querySelector('.popup__input_card_title');
 const inputLink = addForm.querySelector('.popup__input_card_link');
 
 // данные формы открытия карточки
-const imagePopup = document.querySelector('.popup_type_open-image');
+// const imagePopup = document.querySelector('.popup_type_open-image');
 const closeImagePopupBtn = imagePopup.querySelector('#image_close-button');
 const pictureImagePopup = imagePopup.querySelector('.popup__image');
 const captionImagePopup = imagePopup.querySelector('.popup__caption');
@@ -33,6 +34,16 @@ const editProfileFormValidator = new FormValidator(validationConfig, popupEditPr
 editProfileFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(validationConfig, popupAddCard);
 addCardFormValidator.enableValidation();
+
+// создание экземпляра класса section 
+const CardList = new Section({
+    items: initialCards,
+    renderer: (item) => {
+        const card = renderCard(item);
+
+        CardList.addItem(card);
+    }
+}, templateConfig.cardsContainerSelector);
 
 
 // открытие попапа
