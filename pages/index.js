@@ -45,13 +45,7 @@ const CardList = new Section({
     }
 }, templateConfig.cardsContainerSelector);
 
-
-// открытие попапа
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
-    document.addEventListener('click', closePopupByOverlay);
-    document.addEventListener('keydown', closePopupByEscape); 
-}
+cardList.renderItems();
 
 // открытие формы редактирования профиля
 function openEditPopup() {
@@ -78,29 +72,6 @@ function openImagePopup(link, name) {
     captionImagePopup.textContent = name;
 }
 
-
-// Закрытие попапа кликом на оверлей
-function closePopupByOverlay(evt) {
-    if (evt.target.classList.contains('popup')) {
-      const popup = document.querySelector('.popup_opened');
-      closePopup(popup);
-    }
-}
-
-// Закрытие попапа нажатием на Esc
-function closePopupByEscape(evt) {
-    if (evt.key === 'Escape') {
-        const popup = document.querySelector('.popup_opened');
-        closePopup(popup);
-    }
-}
-
-// закрытие попапа
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener('click', closePopupByOverlay);
-    document.removeEventListener('keydown', closePopupByEscape);  
-}
 
 // сохранение изменений в форме редактирования профиля
 function handleProfileSubmit(evt) {
