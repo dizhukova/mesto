@@ -1,7 +1,7 @@
-import { Card } from './Card.js';
-import { initialCards } from './initial-сards.js';
-import { FormValidator } from './FormValidator.js';
-import { validationConfig } from './FormValidator.js';
+import { Card } from '../scripts/components/Card.js';
+import { initialCards } from '../scripts/utils/initial-сards.js';
+import { FormValidator } from '../scripts/components/FormValidator.js';
+import { validationConfig } from '../scripts/components/FormValidator.js';
 
 
 // данные формы редактирования профиля
