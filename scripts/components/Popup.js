@@ -18,14 +18,14 @@ export default class Popup {
     }
 
     _handleOverlayClose(evt) {
-        if (evt.target.classList.contains('popup')) {
-            this.closePopup();
+        if (evt.target.classList.contains('popup_opened')) {
+            this.close();
           }
     }
 
     _handleEscClose(evt) {
         if (evt.key === 'Escape') {
-            this.closePopup();
+            this.close();
         }
     }
 

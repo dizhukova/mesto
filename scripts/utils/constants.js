@@ -42,28 +42,27 @@ const validationConfig = {
 }
 
 // данные формы редактирования профиля
-const elidProfileConfig = {
-  popupEditProfile: '.popup_type_edit-profile',
-  openEditPopupBtn: '.profile__edit-button',
-  closeEditPopupBtn: '#edit_close-button',
-  profileName: '.profile__name',
-  profileProfession: '.profile__profession',
+const editProfileConfig = {
+  popupEditProfile: document.querySelector('.popup_type_edit-profile'),
+  openEditPopupBtn: document.querySelector('.profile__edit-button'),
+  profileName: document.querySelector('.profile__name'),
+  profileProfession: document.querySelector('.profile__profession'),
   editForm: document.forms.EditProfile,
-  editName: '.popup__input_type_name',
-  editProfession: '.popup__input_type_profession'
+  editName: document.querySelector('.popup__input_type_name'),
+  editProfession: document.querySelector('.popup__input_type_profession'),
 }
 
 // данные формы добавления новой карточки
 const addCardConfig = {
-  popupAddCard: '.popup_type_add-card',
-  openAddFormBtn: '.profile__add-button',
+  popupAddCard: document.querySelector('.popup_type_add-card'),
+  openAddFormBtn: document.querySelector('.profile__add-button'),
   addForm: document.forms.AddCard
 }
 
 // данные формы открытия карточки
 const imagePopupConfig = {
-  imagePopup: '.popup_type_open-image',
+  imagePopup: document.querySelector('.popup_type_open-image'),
 }
 
 
-export { initialCards, templateConfig, validationConfig, elidProfileConfig, addCardConfig, imagePopupConfig };
+export { initialCards, templateConfig, validationConfig, editProfileConfig, addCardConfig, imagePopupConfig };
