@@ -24,7 +24,7 @@ function renderCard(item) {
 
 // создание экземпляра класса Section 
 const cardList = new Section({
-    items: initialCards,
+    items: initialCards, // что-то не совсем поняла, как тут нужно исправить(( попробовала, но не работает
     renderer: (item) => {
         const card = renderCard(item);
 
@@ -65,7 +65,6 @@ const popupAddCard = new PopupWithForm(addCardConfig.popupAddCard, {
             name: data['card-name'],
             link: data['card-link']
         });
-        cardList.addItem(card);
         popupAddCard.close();
     }
 });
@@ -74,6 +73,7 @@ const popupAddCard = new PopupWithForm(addCardConfig.popupAddCard, {
 function openAddPopup() {
     popupAddCard.open();
     addCardFormValidator.removeInputErrors();
+    addCardFormValidator.toggleButtonState();
     addCardConfig.addForm.reset();
 }
 
