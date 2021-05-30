@@ -23,11 +23,9 @@ function renderCard(item) {
 }
 
 // создание экземпляра класса Section 
-const cardList = new Section({
-    items: initialCards, // что-то не совсем поняла, как тут нужно исправить(( попробовала, но не работает
+const cardList = new Section(cardList.renderItems(initialCards), {
     renderer: (item) => {
         const card = renderCard(item);
-
         cardList.addItem(card);
     }
 }, templateConfig.cardsContainerSelector);
