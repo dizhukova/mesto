@@ -23,14 +23,14 @@ function renderCard(item) {
 }
 
 // создание экземпляра класса Section 
-const cardList = new Section(cardList.renderItems(initialCards), {
+const cardList = new Section({
     renderer: (item) => {
         const card = renderCard(item);
         cardList.addItem(card);
     }
 }, templateConfig.cardsContainerSelector);
 
-cardList.renderItems();
+cardList.renderItems(initialCards);
 
 // создание экземпляра класса UserInfo
 const userInfo = new UserInfo ({
