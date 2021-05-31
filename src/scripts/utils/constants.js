@@ -49,7 +49,16 @@ const editProfileConfig = {
   profileProfession: document.querySelector('.profile__profession'),
   editForm: document.forms.EditProfile,
   editName: document.querySelector('.popup__input_type_name'),
-  editProfession: document.querySelector('.popup__input_type_profession'),
+  editProfession: document.querySelector('.popup__input_type_profession')
+}
+
+// данные формы редактирования аватара
+const avatarEditPopupConfig = {
+  popupEditAvatar: document.querySelector('.popup_type_edit-avatar'),
+  openEditAvatarBtn: document.querySelector('.profile__avatar-edit'),
+  profileAvatar: document.querySelector('.profile__avatar'),
+  editAvatarForm: document.forms.EditAvatar,
+  editAvatarInput: document.querySelector('.popup__input_type_avatar-link')
 }
 
 // данные формы добавления новой карточки
@@ -70,4 +79,4 @@ const imagePopupConfig = {
 }
 
 
-export { initialCards, templateConfig, validationConfig, editProfileConfig, addCardConfig, deleteCardConfig, imagePopupConfig };
+export { initialCards, templateConfig, validationConfig, editProfileConfig, avatarEditPopupConfig, addCardConfig, deleteCardConfig, imagePopupConfig };

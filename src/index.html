@@ -14,6 +14,7 @@
             <section class="profile">
                 <div class="profile__container">
                     <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар профиля">
+                    <button class="profile__avatar-edit" type="button" aria-label="Редактировать"></button>
                     <div class="profile__info">
                         <div class="profile__name-box">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -48,6 +49,19 @@
             </form> 
         </div>
     </article>
+    <article class="popup popup_type_edit-avatar">
+        <div class="popup__container">
+            <h3 class="popup__title">Обновить аватар</h3>
+            <button class="popup__close-button" type="button" aria-label="Закрыть" id="avatar_close-button"></button>
+            <form class="popup__form" name="EditAvatar" novalidate>
+                <fieldset class="popup__form-field">
+                    <input class="popup__input popup__input_type_avatar-link" type="url" id="avatar-input" name="avatar-link" placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error avatar-input-error"></span>
+                    <button class="popup__submit-button" type="submit" name='submit' aria-label="Сохранить">Сохранить</button>
+                </fieldset>
+            </form>
+        </div>
+    </article>
     <article class="popup popup_type_add-card">
         <div class="popup__container">
             <h3 class="popup__title">Новое место</h3>
@@ -78,7 +92,7 @@
             <button class="popup__close-button" type="button" aria-label="Закрыть" id="card_delete-button"></button>
             <form class="popup__form" name="DeleteCard">
                 <fieldset class="popup__form-field">
-                    <button class="popup__submit-button" type="submit" name='submit' aria-label="Да">Да</button>
+                    <button class="popup__submit-button" type="submit" name='submit' aria-label="Да" id="card_delete-button">Да</button>
                 </fieldset>
             </form>
         </div>
