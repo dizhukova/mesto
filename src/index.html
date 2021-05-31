@@ -43,7 +43,7 @@
                     <span class="popup__input-error name-input-error"></span>
                     <input class="popup__input popup__input_type_profession" minlength="2" maxlength="200" type="text" id="profession-input" name="profession" placeholder="Вид деятельности" required>
                     <span class="popup__input-error profession-input-error"></span>
-                    <button class="popup__save-button" type="submit" name='submit' aria-label="Сохранить">Сохранить</button>
+                    <button class="popup__submit-button" type="submit" name='submit' aria-label="Сохранить">Сохранить</button>
                 </fieldset> 
             </form> 
         </div>
@@ -58,7 +58,7 @@
                     <span class="popup__input-error title-input-error"></span>
                     <input class="popup__input popup__input_card_link" type="url" id="link-input" name="card-link" placeholder="Ссылка на картинку" required>
                     <span class="popup__input-error link-input-error"></span>
-                    <button class="popup__save-button" type="submit" name='submit' aria-label="Создать">Создать</button>
+                    <button class="popup__submit-button" type="submit" name='submit' aria-label="Создать">Создать</button>
                 </fieldset>
             </form> 
         </div>
@@ -70,6 +70,17 @@
                 <img class="popup__image" src="#" alt="Фото">
                 <figcaption class="popup__caption"></figcaption>
             </figure>
+        </div>
+    </article>
+    <article class="popup popup_type_delete-card">
+        <div class="popup__container popup__container_delete-card">
+            <h3 class="popup__title">Вы уверены?</h3>
+            <button class="popup__close-button" type="button" aria-label="Закрыть" id="card_delete-button"></button>
+            <form class="popup__form" name="DeleteCard">
+                <fieldset class="popup__form-field">
+                    <button class="popup__submit-button" type="submit" name='submit' aria-label="Да">Да</button>
+                </fieldset>
+            </form>
         </div>
     </article>
     <template class="card-template">

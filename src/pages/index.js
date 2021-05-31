@@ -8,7 +8,14 @@ import PopupWithImage from '../scripts/components/PopupWithImage.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
 import UserInfo from '../scripts/components/UserInfo.js';
 
+// валидация
+const editProfileFormValidator = new FormValidator(validationConfig, editProfileConfig.editForm);
+editProfileFormValidator.enableValidation();
+const addCardFormValidator = new FormValidator(validationConfig, addCardConfig.addForm);
+addCardFormValidator.enableValidation();
 
+
+// загрузка данных с сервера
 const api = new Api({
     baseUrl: 'https://nomoreparties.co/v1/cohort-24',
     headers: {
@@ -17,33 +24,12 @@ const api = new Api({
     }
 });
 
-fetch('https://nomoreparties.co/v1/cohort-24/users/me', {
-    headers: {
-        authorization: '0bfe8642-03b6-4f4d-92cc-535741de9ca8',
-    }
-})
-.then(res => res.json())
-.then(result => console.log(result))
-.catch(e => console.log('e:', e))
-
-const cards = fetch('https://mesto.nomoreparties.co/v1/cohort-24/cards',  {
-    headers: {
-        authorization: '0bfe8642-03b6-4f4d-92cc-535741de9ca8',
-    }
-})
-.then(res => res.json())
-.then(result => console.log(result))
-.catch(e => console.log('e:', e))
 
 
 
-// создание экземпляров класса FormValidator
-const editProfileFormValidator = new FormValidator(validationConfig, editProfileConfig.editForm);
-editProfileFormValidator.enableValidation();
-const addCardFormValidator = new FormValidator(validationConfig, addCardConfig.addForm);
-addCardFormValidator.enableValidation();
 
-// создание карточки
+
+// создание и рендеринг карточек
 function renderCard(item) {
     const card = new Card(item, () => imagePopup.open(item.name, item.link), templateConfig.cardSelector);
     const cardElement = card.generateCard();
@@ -52,7 +38,6 @@ function renderCard(item) {
     return cardElement;
 }
 
-// создание экземпляра класса Section 
 const cardList = new Section({
     renderer: (item) => {
         const card = renderCard(item);
