@@ -1,11 +1,41 @@
 import './index.css';
 import { initialCards, templateConfig, validationConfig, editProfileConfig, addCardConfig, imagePopupConfig } from '../scripts/utils/constants.js';
+import Api from '../scripts/components/Api.js';
 import Card from '../scripts/components/Card.js';
 import FormValidator from '../scripts/components/FormValidator.js';
 import Section from '../scripts/components/Section.js';
 import PopupWithImage from '../scripts/components/PopupWithImage.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
 import UserInfo from '../scripts/components/UserInfo.js';
+
+
+const api = new Api({
+    baseUrl: 'https://nomoreparties.co/v1/cohort-24',
+    headers: {
+        authorization: '0bfe8642-03b6-4f4d-92cc-535741de9ca8',
+        'Content-Type': 'application/json'
+    }
+});
+
+fetch('https://nomoreparties.co/v1/cohort-24/users/me', {
+    headers: {
+        authorization: '0bfe8642-03b6-4f4d-92cc-535741de9ca8',
+    }
+})
+.then(res => res.json())
+.then(result => console.log(result))
+.catch(e => console.log('e:', e))
+
+const cards = fetch('https://mesto.nomoreparties.co/v1/cohort-24/cards',  {
+    headers: {
+        authorization: '0bfe8642-03b6-4f4d-92cc-535741de9ca8',
+    }
+})
+.then(res => res.json())
+.then(result => console.log(result))
+.catch(e => console.log('e:', e))
+
+
 
 // создание экземпляров класса FormValidator
 const editProfileFormValidator = new FormValidator(validationConfig, editProfileConfig.editForm);
