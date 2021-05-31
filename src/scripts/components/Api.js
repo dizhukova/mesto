@@ -61,7 +61,7 @@ export default class Api{
     }
 
     deleteCard(id) {
-        return fetch(`${this._baseUrl}/cards/${id}`, {
+        return fetch(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers,
         })
@@ -69,7 +69,7 @@ export default class Api{
     }
 
     likeCard(id) {
-        return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
             method: 'PUT',
             headers: this._headers,
         })
@@ -77,7 +77,7 @@ export default class Api{
     }
 
     unlikeCard(id) {
-        return fetch(`${this._baseUrl}/cards/ikes/${id}`, {
+        return fetch(`${this._baseUrl}/cards/ikes/${cardId}`, {
             method: 'DELETE',
             headers: this._headers,
         })

@@ -14,6 +14,9 @@ editProfileFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(validationConfig, addCardConfig.addForm);
 addCardFormValidator.enableValidation();
 
+// попап, открывающий карточку
+const imagePopup = new PopupWithImage(imagePopupConfig.imagePopup);
+
 
 // загрузка данных с сервера
 const api = new Api({
@@ -27,21 +30,31 @@ const api = new Api({
 
 
 
-
-
 // создание и рендеринг карточек
-function renderCard(item) {
-    const card = new Card(item, () => imagePopup.open(item.name, item.link), templateConfig.cardSelector);
+function renderCard(data) {
+    const card = new Card(data, templateConfig.cardSelector, userId, {
+        handleCardClick: () => {
+            imagePopup.open({
+                name: data.name,
+                link: data.link
+            });
+        },
+        handleCardDelete: () => {
+            // popupDeleteCard.open(card);
+        },
+        handleCardLike: () => {
+
+        }
+
+    });
     const cardElement = card.generateCard();
-    cardList.addItem(cardElement);
-    
     return cardElement;
 }
 
 const cardList = new Section({
     renderer: (item) => {
         const card = renderCard(item);
-        cardList.addItem(card);
+        cardList.appendItem(card);
     }
 }, templateConfig.cardsContainerSelector);
 
@@ -90,8 +103,6 @@ function openAddPopup() {
     addCardConfig.addForm.reset();
 }
 
-// создание экземпляра класса PopupWithImage
-const imagePopup = new PopupWithImage(imagePopupConfig.imagePopup);
 
 editProfileConfig.openEditPopupBtn.addEventListener('click', openEditPopup);
 addCardConfig.openAddFormBtn.addEventListener('click', openAddPopup);
