@@ -1,5 +1,5 @@
 import './index.css';
-import { initialCards, templateConfig, validationConfig, editProfileConfig, addCardConfig, imagePopupConfig } from '../scripts/utils/constants.js';
+import { initialCards, templateConfig, validationConfig, editProfileConfig, addCardConfig, deleteCardConfig, imagePopupConfig } from '../scripts/utils/constants.js';
 import Api from '../scripts/components/Api.js';
 import Card from '../scripts/components/Card.js';
 import FormValidator from '../scripts/components/FormValidator.js';

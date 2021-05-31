@@ -59,10 +59,15 @@ const addCardConfig = {
   addForm: document.forms.AddCard
 }
 
+const deleteCardConfig = {
+  popupDeleteCard: document.querySelector('.popup_type_delete-card'),
+  deleteCardBtn: document.querySelector('#card_delete-button')
+}
+
 // данные формы открытия карточки
 const imagePopupConfig = {
   imagePopup: document.querySelector('.popup_type_open-image'),
 }
 
 
-export { initialCards, templateConfig, validationConfig, editProfileConfig, addCardConfig, imagePopupConfig };
+export { initialCards, templateConfig, validationConfig, editProfileConfig, addCardConfig, deleteCardConfig, imagePopupConfig };
