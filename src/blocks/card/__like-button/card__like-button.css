@@ -1,10 +1,12 @@
 .card__like-button {
-    width: 22px;
-    height: 19px;
+    outline: 1px red solid;
+    min-width: 22px;
+    min-height: 19px;
     background-image: url(../../../images/Vector.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
+    background-size: contain;
     border: none;
     outline: none;
     transition: linear .2s;

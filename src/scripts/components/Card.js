@@ -63,7 +63,7 @@ export default class Card {
   // лайк карточки
   handleLikeCard() {
     this._cardLikeButton.classList.toggle('card__like-button_active');
-    this._likeCounter.textContent = this._likes.lenght;
+    this._likeCounter.textContent = this._likes.length;
   }
 
   // проверка наличия лайка
