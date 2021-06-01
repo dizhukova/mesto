@@ -50,9 +50,4 @@ const imagePopupConfig = {
   imagePopup: document.querySelector('.popup_type_open-image'),
 }
 
-const loaderCongig = {
-  loaderDots: document.querySelector('.loader-dots'),
-  loaderDotsVisible: document.querySelector('.loader-dots_visible'),
-}
-
-export { templateConfig, validationConfig, editProfileConfig, editAvatarPopupConfig, addCardConfig, deleteCardConfig, imagePopupConfig, loaderCongig };
+export { templateConfig, validationConfig, editProfileConfig, editAvatarPopupConfig, addCardConfig, deleteCardConfig, imagePopupConfig };

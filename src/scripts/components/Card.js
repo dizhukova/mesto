@@ -77,7 +77,7 @@ export default class Card {
   }
 
   _showUserLikes() {
-    const newLikes = this._likes.some(like => like._id === this._userId);
+    const newLikes = this._likes.some((like) => like._id === this._userId);
     if (newLikes) {
       this._cardLikeButton.classList.add('card__like-button_active');
     }
