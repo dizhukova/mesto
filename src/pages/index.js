@@ -82,14 +82,15 @@ const imagePopup = new PopupWithImage(imagePopupConfig.imagePopup);
 // попап редактирования данных профиля
 const popupEditProfile = new PopupWithForm(editProfileConfig.popupEditProfile, {
     handleFormSubmit: (data) => {
-        popupEditProfile.renderLoading(true);
+        popupEditProfile.renderLoading();
         api.setUserInfo(data)
             .then((res) => {
                 userInfo.setUserInfo(res);
                 popupEditProfile.close();
+                editProfileFormValidator.disableSubmitButton();
             })
             .catch(err => console.log(err))
-            .finally(() => popupEditProfile.renderLoading(false));
+            // .finally(() => editProfileFormValidator.disableSubmitButton());
     }
 });
 

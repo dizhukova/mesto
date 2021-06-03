@@ -33,16 +33,4 @@ export default class Popup {
         const closeButton = this._popupElement.querySelector('.popup__close-button');
         closeButton.addEventListener('click', this.close.bind(this));
     }
-
-    renderLoading(isLoading) {
-        const submitButton = this._popupElement.querySelector('.popup__submit-button');
-
-        if(isLoading) {
-            submitButton.querySelector('.loader-dots').classList.add('loader-dots_visible');
-            submitButton.disabled = true;
-        } else {
-            submitButton.querySelector('.loader-dots').classList.remove('loader-dots_visible');
-            submitButton.disabled = false;
-        }
-    }
 }

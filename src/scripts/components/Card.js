@@ -68,8 +68,7 @@ export default class Card {
 
   // проверка наличия лайка
   checkLikeStatus() {
-    const activeLike = this._cardLikeButton.classList.contains('card__like-button_active');
-    return activeLike;
+     return this._likes.some((like) => like._id === this._userId);
   }
 
   setLikes(data) {
@@ -77,8 +76,7 @@ export default class Card {
   }
 
   _showUserLikes() {
-    const newLikes = this._likes.some((like) => like._id === this._userId);
-    if (newLikes) {
+    if (this.checkLikeStatus()) {
       this._cardLikeButton.classList.add('card__like-button_active');
     }
   }

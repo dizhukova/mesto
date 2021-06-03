@@ -82,4 +82,9 @@ export default class FormValidator {
           }
         });
     }
+
+    disableSubmitButton() {
+        this._buttonElement.querySelector('.loader-dots').classList.remove('loader-dots_visible');
+        this._buttonElement.disabled = false;
+    }
 }
